@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<div class="container col-md-6">
+    <br>
+    <div class="jumbotron">
+        <div class="btn-toolbar" role="toolbar">
+            <div class="btn-group mr-5" role="group" aria-label="Third group">
+                <a  href= "/nuevaCat" class="btn btn-warning">Ingresar Categoria</a>
+            </div>
+            <div class="btn-group mr-5" role="group" aria-label="Third group">
+                <a  href= "/nuevoLibro" class="btn btn-warning">Ingresar Libro</a>
+            </div>
+            <div class="btn-group" role="group" aria-label="Third group">
+                <a  href= "/libros " class="btn btn-warning">Ver Libros</a>
+            </div>
+        </div>
+    </div>
+    <div class="mt-5 mx-auto mb-3" style="max-width: 20rem;">
+            <h5 th:text="${mensaje}"></h5>
+    </div>
+</div>
+</body>
+</html>

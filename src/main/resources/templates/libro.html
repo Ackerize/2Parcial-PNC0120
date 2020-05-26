@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Libro</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container col-md-6">
+        <br>
+        <div class="jumbotron">
+            <h1>INGRESAR LIBRO</h1>
+            <form th:action="@{/insertarLibro}" th:object="${libro}" method="post">
+
+                <div class="form-group">
+                    <label class="col-form-label">Titulo</label>
+                    <input type="text" class="form-control"  placeholder="Ingrese el titulo" th:field="*{titulo}">
+                    <span th:errors="*{titulo}" style="color:#E81505"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-form-label">Autor</label>
+                    <input type="text" class="form-control" placeholder="Ingrese el autor" th:field="*{autor}">
+                    <span th:errors = "*{autor}" style= "color:#E81505"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 col-form-label">ISBN</label>
+                    <input type="text" class="form-control" placeholder="Ingrese el ISBN" th:field="*{isbn}">
+                    <span th:errors = "*{isbn}" style= "color:#E81505"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Categoria: </label>
+                    <th><select class="custom-select" th:field="*{categoria.codigoCategoria}">
+                        <option th:each="i: ${categoria}" th:value="${i.codigoCategoria}"
+                                th:text="${i.nombre}">
+                        </option>
+                    </select>
+                    </th>
+                </div>
+                <div class="form-group">
+                    <div class="custom-control custom-radio">
+                        <label class="">Estado</label>
+                        <input type="radio" class="" th:field="*{estado}" th:value = "${true}">
+                    </div>
+                </div>
+
+                <div class="btn-toolbar" role="toolbar">
+                    <div class="btn-group mr-5" role="group" aria-label="Third group">
+                        <input type="submit" class="btn btn-primary" value = "Guardar"></input>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
